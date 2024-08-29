@@ -1,22 +1,32 @@
 import unittest
 
-# class Solution:
-#     def lengthOfLongestSubstring(self, s: str) -> int:
-#         letters = list(s)
-#         word = ""
-#         max_len = 0
-
-#         for letter in letters:
-#             if letter in word:
-#                 current_len = len(word)
-#                 if current_len > max_len:
-#                     max_len = current_len
-#                 word = ""
-#             word += letter
-#         return max_len
+"""
+1. Primer Intento
+"""
 
 
 class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        letters = list(s)
+        word = ""
+        max_len = 0
+
+        for letter in letters:
+            if letter in word:
+                current_len = len(word)
+                if current_len > max_len:
+                    max_len = current_len
+                word = ""
+            word += letter
+        return max_len
+
+
+"""
+2. Segundo Intento
+"""
+
+
+class Solution1:
     def lengthOfLongestSubstring(self, s: str) -> int:
         diccionario = {}
         max_len = 0
@@ -34,7 +44,7 @@ class Solution:
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
-        self.s = Solution()
+        self.s = Solution1()
 
     def test_case_1(self):
         self.assertEqual(self.s.lengthOfLongestSubstring("abcabcbb"), 3)
@@ -48,5 +58,3 @@ class TestSolution(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-# s = Solution()
-# s.lengthOfLongestSubstring("abcabcbb")
